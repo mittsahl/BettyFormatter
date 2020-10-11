@@ -20,10 +20,13 @@ int main(int argc, char **argv)
 		if (i > 2)
 			fputc('@', fp);
 		ptr = argv[i];
-		while (*ptr != ' ')
+		while (*ptr != ' ' && *ptr != '\0')
 			ptr++;
-		while (isalpha(*ptr) == 0)
-			ptr++;
+		if (*ptr == ' ')
+		{	
+			while (isalpha(*ptr) == 0)
+				ptr++;
+		}
 		copy = ptr;
 		while (*copy != '\0')
 		{	
